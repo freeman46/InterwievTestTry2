@@ -2,7 +2,11 @@ package Pages;
 
 import Core.Browser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -28,8 +32,10 @@ public class BasePage {
         this.browser.getWebDriver().findElement(by).click();
     }
 
-    /*public String[] getCatalogItem(String navBar) {
-        List<WebElement> e = browser.getWebDriver().findElements(By.xpath())
-    }*/
+    public void checkElement(By by) {
+        WebDriverWait wait = new WebDriverWait(browser.getWebDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
 
 }

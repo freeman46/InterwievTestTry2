@@ -4,6 +4,7 @@ import Core.Browser;
 import Pages.ElectronicsPage;
 import Pages.MainPage;
 import Pages.MarketPage;
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -31,6 +32,7 @@ public class YandexTest {
     @Test
     public void Run () {
         mainpage.goToMarket();
+        marketpage.checkElement(By.xpath("//span[text()='Каталог']"));
         marketpage.goToElectronics();
         electronicspage.goToPhones();
     }
