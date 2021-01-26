@@ -2,22 +2,22 @@ package Pages;
 
 import Core.Browser;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 public class BasePage {
     public BasePage(Browser b) {
         this.browser = b;
     }
     protected final Browser browser;
-    public void sendKeysWithClear(String locator, String text) {
+    public void sendKeysWithClearString(String locator, String text) {
         browser.getWebDriver().findElement(By.xpath(locator)).clear();
         browser.getWebDriver().findElement(By.xpath(locator)).sendKeys(new CharSequence[]{text});
+    }
+
+    public void sendKeysWithClearInteger(String locator, Integer value) {
+        browser.getWebDriver().findElement(By.xpath(locator)).clear();
+        browser.getWebDriver().findElement(By.xpath(locator)).sendKeys(value.toString());
     }
 
     public void click(String locator) {
@@ -35,6 +35,10 @@ public class BasePage {
     public void checkElement(By by) {
         WebDriverWait wait = new WebDriverWait(browser.getWebDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public int getCountElements (String locator) {
+        return browser.getWebDriver().findElements(By.xpath(locator)).size();
     }
 
 
