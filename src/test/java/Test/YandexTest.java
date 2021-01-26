@@ -35,7 +35,7 @@ public class YandexTest {
     @Test
     public void Run () {
         mainpage.goToMarket();
-        marketpage.checkElement(By.xpath("//button[@class,'zsSJkfeAPw_16jABpOZ2-gjdzW5ajbI_3WgR56k47x'']"));
+        marketpage.checkElement(By.xpath("/html/body/div[2]/div[3]/noindex/div/div/div[2]/div[1]/div/button"));
         marketpage.goToElectronics();
         electronicspage.checkElement(By.xpath("//*[contains(text(), 'Смартфоны')]"));
         electronicspage.goToPhones();
