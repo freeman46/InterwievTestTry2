@@ -6,7 +6,7 @@ public class ElectronicsPage extends BasePage{
     public ElectronicsPage (Browser browser) {
         super(browser);
     }
-    String smartphone = "//*[contains(text(), 'Смартфоны')]";
+    String smartphone = "//a[text()='Смартфоны']";
 
     public void goToPhones() {
         click(smartphone);

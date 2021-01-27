@@ -2,6 +2,7 @@ package Pages;
 
 import Core.Browser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,6 +40,14 @@ public class BasePage {
 
     public int getCountElements (String locator) {
         return browser.getWebDriver().findElements(By.xpath(locator)).size();
+    }
+/*
+    public WebElement getFirstItemCatalog (String locator) {
+        return browser.getWebDriver().findElement(By.xpath(locator));
+    }
+*/
+    public String getRatingItem (String locator) {
+        return browser.getWebDriver().findElement(By.xpath(locator)).getText();
     }
 
 

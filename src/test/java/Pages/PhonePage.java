@@ -4,8 +4,6 @@ import Core.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class PhonePage extends BasePage {
     public PhonePage(Browser browser) {
         super(browser);
@@ -18,9 +16,9 @@ public class PhonePage extends BasePage {
     String huawei = "//span[text()='HUAWEI']";
     String nokia = "//span[text()='Nokia']";
     String minDiagonal = "//input[@name='Диагональ экрана (точно) до']";
-    String newestphones = "//button[text()='по новизне']";
+    String newestPhones = "//button[text()='по новизне']";
 
-    public void selectFiltrs () {
+    public void selectFilters () {
         sendKeysWithClearInteger(maxPrice, 20000);
         click(By.xpath(apple));
         click(By.xpath(bq));
@@ -31,25 +29,30 @@ public class PhonePage extends BasePage {
     }
 
     public void checkCountPhones() {
-        int standartCount = 48;
+        int standardCount = 48;
         int factCount = getCountElements("//article[@data-autotest-id='product-snippet']");
-        if (standartCount==factCount) {
+        if (standardCount == factCount) {
             System.out.println("Количество элементов совпадает");
         }
         else {
             System.out.println("WARNING! Количество элементов НЕ совпадает");
         }
     }
-
-    List<WebElement> firstElement = browser.getWebDriver().findElements(By.xpath("//article[@data-autotest-id='product-snippet'][1]"));
-
-
-
-
-
-
-    public void updateSorting() {
-        click(newestphones);
+/*
+    public WebElement firstItem () {
+        return getFirstItemCatalog("//article[@data-autotest-id='product-snippet'][1]");
     }
 
+    WebElement memoryItem = firstItem();
+
+*/
+
+    public void updateSorting() {
+        click(newestPhones);
+    }
+/*
+    public void searchFirstItem () {
+        click((By) memoryItem);
+    }
+*/
 }

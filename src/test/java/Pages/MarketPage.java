@@ -9,12 +9,12 @@ public class MarketPage extends BasePage{
     }
 
 
-    String catalog = "/html/body/div[2]/div[3]/noindex/div/div/div[2]/div[1]/div/button";
-    String electronics = "//*[contains(text(), 'Электроника')]";
+    String catalog = "//span[text()='Каталог";
+    String electronics = "//span[text()='Электроника'";
 
     public void goToElectronics() {
         click(catalog);
-        checkElement(By.xpath("//*[contains(text(), 'Электроника')])"));
+        checkElement(By.xpath("//span[text()='Электроника'"));
         click(electronics);
     }
 
